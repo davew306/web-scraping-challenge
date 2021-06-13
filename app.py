@@ -13,7 +13,7 @@ def index():
     mars = mongo.db.mars.find_one()
     return render_template("index.html", mars=mars)
 
-# Scrape Route to Import `scrape_mars.py` Script & Call `scrape` Function
+
 @app.route("/scrape")
 def scrapper():
     mars = mongo.db.mars
@@ -21,6 +21,6 @@ def scrapper():
     mars.update({}, mars_data, upsert=True)
     return "Scraping Successful"
 
-# Define Main Behavior
+
 if __name__ == "__main__":
     app.run()
